@@ -3,7 +3,6 @@ import {useSelector} from "react-redux";
 import useMovieTrailer from "../hooks/useMovieTrailer";
 import {faVolumeMute, faVolumeUp} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import VideoTitle from "./VideoTitle";
 
 const VideoBackground = ({movieId, title, overview}) => {
   const [isMuted, setIsMuted] = useState(true);
@@ -37,10 +36,10 @@ const VideoBackground = ({movieId, title, overview}) => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
       ></iframe>
-      <VideoTitle title={title} overview={isMuted ? overview : null} />
+
       <button
         onClick={toggleMute}
-        className="absolute bottom-40  right-20 bg-white text-gray-700 p-4 rounded-full shadow-lg z-10 hover:bg-gray-200 transition-colors"
+        className="absolute top-40  right-20 bg-white text-gray-700 p-4 rounded-full shadow-lg z-10 hover:bg-gray-200 transition-colors"
         aria-label={isMuted ? "Unmute" : "Mute"}
       >
         <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} size="lg" />
